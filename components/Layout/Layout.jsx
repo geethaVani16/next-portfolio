@@ -1,12 +1,36 @@
 import React from 'react'
 import Link from 'next/link'
+import Head from 'next/head'
+import Nprogress from 'nprogress'
+import Router from 'next/router'
+
+Router.onRouteChangeStart = url => {
+    console.log(url)
+    Nprogress.start()
+
+}
+Router.onRouteChangeComplete = () => Nprogress.done();
+Router.onRouteChangeError = () => Nprogress.done();
+
 
 export default function Layout({ children, title }) {
     return (
         <div className='root'>
+            <Head>
+                <title>Next Portfolio</title>
+                <link
+                    rel='stylesheet'
+                    href='https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css'
+
+                />
+            </Head>
             <header>
-                <Link href='/'>Home </Link>
-                <Link href='/about'> About</Link>
+                <Link href='/'>
+                    <a>Home</a>
+                </Link>
+                <Link href='/about'>
+                    <a>About Us</a>
+                </Link>
             </header>
             <h1>{title}</h1>
             {children}
@@ -23,7 +47,7 @@ export default function Layout({ children, title }) {
                         display:flex;
                         justify-content:space-around;
                         padding:1em;
-                        font-size:1.2em;
+                        font-size:1.2rem;
                         background:indigo;
 
                     }
@@ -39,8 +63,7 @@ export default function Layout({ children, title }) {
                         padding:1em;
                     }
                     `}</style>
-            <style global jsx>
-                {`
+            <style global jsx> {`
                     body{
                         margin:0;
                         font-size:110%;
