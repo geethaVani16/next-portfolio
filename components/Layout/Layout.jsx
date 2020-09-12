@@ -18,11 +18,6 @@ export default function Layout({ children, title }) {
         <div className='root'>
             <Head>
                 <title>Next Portfolio</title>
-                <link
-                    rel='stylesheet'
-                    href='https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css'
-
-                />
             </Head>
             <header>
                 <Link href='/'>
@@ -30,6 +25,9 @@ export default function Layout({ children, title }) {
                 </Link>
                 <Link href='/about'>
                     <a>About Us</a>
+                </Link>
+                <Link href='/blog'>
+                    <a>Blog</a>
                 </Link>
             </header>
             <h1>{title}</h1>
